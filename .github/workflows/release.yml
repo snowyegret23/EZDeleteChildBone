@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Determine new version
         id: version
@@ -35,7 +35,7 @@ jobs:
           zip -r EZDeleteChildBone-${{ env.NEW_TAG }}.zip EZDeleteChildBone
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.NEW_TAG }}
           files: EZDeleteChildBone-${{ env.NEW_TAG }}.zip
